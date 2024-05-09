@@ -35,7 +35,7 @@ class TestAppium(unittest.TestCase):
             self.controller.scroll_down()
 
 
-    def test_ikea_app(self):
+    def test_ikea_app_main_flow(self):
         
         self.controller.click_button()
 
@@ -60,9 +60,21 @@ class TestAppium(unittest.TestCase):
         button = self.controller.find_element(xpaths_map["button_dirigera_hub"])
         button.click()
 
-        #button = self.controller.find_element(xpaths_map["button_get_started"])
-        #button.click()
-        time.sleep(2)
+        button = self.controller.find_element(xpaths_map["button_get_started"])
+        button.click()
+
+        button = self.controller.find_element(xpaths_map["button_eth_next"])
+        button.click()
+
+        button = self.controller.find_element(xpaths_map["button_connect_power_next"])
+        button.click()
+
+        button = self.controller.find_element(xpaths_map["button_wait_for_ring_next"])
+        button.click()
+
+        button = self.controller.find_element(xpaths_map["button_ring_pulse_next"])
+        button.click()
+        time.sleep(5)
 
         # source_page = self.driver.page_source
         # print(source_page)

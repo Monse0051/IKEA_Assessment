@@ -7,7 +7,9 @@ from appium.webdriver.common.appiumby import AppiumBy
 class AppController:
     def __init__(self, driver: webdriver.webdriver.WebDriver):
         self._driver = driver
-        time.sleep(0.1)
+        self._driver.implicitly_wait(15)
+        
+        #time.sleep(0.1)
 
     def click_button(self, id = ""):
         time.sleep(0.2)
@@ -26,17 +28,18 @@ class AppController:
         return self._driver.find_element(AppiumBy.ID, id)
     
     def find_element(self, xpath):
+        # time.sleep(0.1)
         return self._driver.find_element(AppiumBy.XPATH, xpath)
 
     def scroll_down(self):
         win_size = self._driver.get_window_size()
         x = win_size["width"]//2
         y = win_size["height"]//2
-        self._driver.swipe(x, y, x, y-200, 30)
+        self._driver.swipe(x, y, x, y-400, 30)
     
     def check_checkbox(self, id):
         checkbox = self._driver.find_element(AppiumBy.ID, id)
         checkbox.click()
-        time.sleep(0.1)
+        # time.sleep(0.1)
 
     
