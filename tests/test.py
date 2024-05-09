@@ -1,5 +1,5 @@
 import time
-import unittest
+import pytest
 from appium import webdriver
 from appium.options.android import UiAutomator2Options
 
@@ -20,14 +20,15 @@ capabilities = dict(
 
 appium_server_url = 'http://localhost:4723'
 
-class TestAppium(unittest.TestCase):
-    def setUp(self):
+class TestAppium:
+    def setup_method(self):
+        print("Setup test...")
         self.driver = webdriver.Remote(appium_server_url, options=UiAutomator2Options().load_capabilities(capabilities))
         self.controller = AppController(self.driver)
 
-    def tearDown(self):
-        if self.driver:
-            self.driver.quit()
+    def teardown(self):
+        print("teardown")
+        self.controller.close_app()
     
     def _scrolling_down(self, button_id):
         button = self.controller.find_button(button_id)
@@ -35,8 +36,18 @@ class TestAppium(unittest.TestCase):
             self.controller.scroll_down()
 
 
+    def test_first_screen(self):
+        """
+        Test documentation
+        """
+        widgets_text = self.controller.find_elements("android.widget.TextView")
+        assert len(widgets_text) ==  6, "Screen shall have 6 TextView elements"
+
     def test_ikea_app_main_flow(self):
         
+        widgets_text = self.controller.find_elements("android.widget.TextView")
+        assert len(widgets_text) ==  6, "Screen shall have 6 TextView elements"
+
         self.controller.click_button()
 
         self.controller.click_button("primary")
