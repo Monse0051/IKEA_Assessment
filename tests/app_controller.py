@@ -26,16 +26,21 @@ class AppController:
                 lambda : self._scrolling_down_until("primary"), # transition to home screen
                 lambda : self.click_button("primary")
             ],
+            
             [ self.click_button ], # transition to dirigera hub pop up screen
 
             [
                lambda : self.click_button_xpath(xpaths_map["button_dirigera_hub"]), #transition to get started screen
             ],
-            [ lambda: self.click_button_xpath(xpaths_map["button_get_started"])],
-            [ lambda: self.click_button_xpath(xpaths_map["button_eth_next"])],
-            [ lambda: self.click_button_xpath(xpaths_map["button_connect_power_next"])],
-            [ lambda: self.click_button_xpath(xpaths_map["button_wait_for_ring_next"])],
-            [ lambda: self.click_button_xpath(xpaths_map["button_ring_pulse_next"])],
+            [ lambda: self.click_button_xpath(xpaths_map["button_get_started"])], #transition to connect eth screen
+
+            [ lambda: self.click_button_xpath(xpaths_map["button_eth_next"])], #transition to connect pwr screen
+
+            [ lambda: self.click_button_xpath(xpaths_map["button_connect_power_next"])], #transition to wait for ring screen
+
+            [ lambda: self.click_button_xpath(xpaths_map["button_wait_for_ring_next"])], #transition to ring light screen
+
+            [ lambda: self.click_button_xpath(xpaths_map["button_ring_pulse_next"])], #transition to Looking hubs screen(last one)
 
             
         ]

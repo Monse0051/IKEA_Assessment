@@ -19,3 +19,7 @@ _ANDROID_WIDGET = "android.widget"
 class WidgetsNames(Enum):
     TEXT_VIEW = f"{_ANDROID_WIDGET}.TextView"
     IMAGE_VIEW = f"{_ANDROID_WIDGET}.ImageView"
+
+_ANDROID_VIEW = "android.view"
+class ViewNames(Enum):
+    ANDROID_VIEW = f"{_ANDROID_VIEW}.View"
