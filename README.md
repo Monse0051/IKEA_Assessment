@@ -48,4 +48,4 @@ See [Test Cases](./docs/test_cases.md)
 ## Test Cases Report
 
 See [report.html](./tests/logs/report.html) to see report html source.
-See [report](https://github.com/Monse0051/IKEA_Assessment/blob/main/tests/logs/report.html) To see the rendered html page
+See [report](https://html-preview.github.io/?url=https://github.com/Monse0051/IKEA_Assessment/blob/main/tests/logs/report.html) To see the rendered html page
