@@ -11,7 +11,7 @@ from xpaths import xpaths_map
 
 capabilities = dict(
     platformName='Android',
-    platformVersion='13',
+    platformVersion='14',
     automationName='uiautomator2',
     deviceName='Android',
     appPackage = 'com.ikea.inter.homesmart.system2',

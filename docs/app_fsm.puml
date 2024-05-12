@@ -1,0 +1,92 @@
+@startuml app_fsm
+
+state "Splash Screen"  as splash
+state "Welcome Screen" as welcome
+state "Region Screen" as region
+state "List of Regions" as listRegions
+state "Privacy" as privacy
+state "Consent for Analytics" as consent
+state "Terms and Conditions" as terms
+state "Home Screen" as home
+
+state "Scenes" as scenes
+state "Energy Insights" as energy
+state "System Settings" as settings
+
+state "Add hub Pop Up" as addHub
+state "Let's Get Started" as started
+state "Connect Ethernet..." as connectEth
+state "Connect Power..." as connectPwr
+state "Wait for the ring..." as waitForRing
+state "The ring light will pulse" as ringPulse
+state "Looking for hubs.." as LookingForHubs
+state "I need help" as help
+
+[*] --> splash
+splash --> welcome
+welcome --> region : click Get Started
+region --> welcome : click back
+
+region --> listRegions : click region
+listRegions --> region : select region or click back
+
+region --> privacy : click next
+privacy --> region: click back
+
+privacy --> consent : scroll down and click next
+consent --> privacy : click back
+
+consent --> terms : select radio button and click next
+terms --> consent: click back
+terms --> home : scroll down and click Accept
+
+/'
+* home screen transitions
+'/
+
+home --> home : click home icon
+home --> scenes : click star icon 
+scenes --> home : click home icon
+
+home --> energy : click square icon
+energy --> home : click home icon
+
+home --> settings: click user icon
+settings --> home: click home icon
+
+home --> addHub : click add button
+addHub --> home : click close
+
+scenes --> energy : click square icon
+energy --> scenes : click star icon
+
+energy --> settings : click user icon
+settings --> energy : click square icon
+settings --> scenes : click star icon
+scenes --> settings : click user icon
+
+/'*************************'/
+
+addHub --> started : click add button 
+started --> home : click close
+
+started --> connectEth: click next
+connectEth --> started: click back
+
+connectEth --> connectPwr : click next
+connectPwr --> connectEth : click back
+
+connectPwr --> waitForRing : click next
+waitForRing --> connectPwr : click back
+waitForRing --> help : click help
+help --> waitForRing : click close or click back
+
+waitForRing --> ringPulse : click next
+ringPulse --> waitForRing : click back
+ringPulse --> help : click help
+help --> ringPulse : click close or clikc back
+
+ringPulse --> LookingForHubs : click next
+LookingForHubs --> ringPulse : click back
+@enduml
+
