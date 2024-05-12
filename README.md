@@ -46,4 +46,6 @@ Install IKEA app in your android device, it can be downloaded [here](https://pla
 See [Test Cases](./docs/test_cases.md)
 
 ## Test Cases Report
-See [report.html](./tests/logs/report.html)
+
+See [report.html](./tests/logs/report.html) to see report html source.
+See [report](https://github.com/Monse0051/IKEA_Assessment/blob/main/tests/logs/report.html) To see the rendered html page
